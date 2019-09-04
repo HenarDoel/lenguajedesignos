@@ -90,7 +90,7 @@ model = SmallerVGGNet.build(width=IMAGE_DIMS[1], height=IMAGE_DIMS[0],
 opt = Adam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
 model.compile(loss="categorical_crossentropy", optimizer=opt,
 	metrics=["accuracy"])
-print(model.summary())
+#print(model.summary())
 
 # train the network
 print("[INFO] training network...")
