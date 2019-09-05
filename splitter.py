@@ -12,7 +12,7 @@ ap.add_argument("-o", "--outputdir", required=True,
                 help="path of the output directory")
 ap.add_argument("-r", "--rotation", default="0", required=False,
                 help="rotation in degrees")
-ap.add_argument("-s", "--resize", default="0", required=False, nargs=2,
+ap.add_argument("-s", "--resize", default="96,96", required=False, nargs=2,
                 help="size of frames in case you want to resize them")
 
 args = vars(ap.parse_args())
