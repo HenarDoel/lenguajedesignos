@@ -1,3 +1,4 @@
+# authors: @henardoel and @marloquemegusta
 import cv2
 import numpy as np
 
@@ -6,10 +7,12 @@ import numpy as np
 points = []
 colorsBGR = []
 colorsHSV = []
-upperlimit = ([0, 0, 0])  # upperlimits in format [maxHue,maxSaturation,maxValue]
-bottomlimit = ([179, 255, 255])  # bottomlimits in format [minHue,minSaturation,minValue]
 
+# initialize the minimun and maximum value in the hsv space, in format [maxHue,maxSaturation,maxValue]
+upperlimit = ([0, 0, 0])
+bottomlimit = ([179, 255, 255])
 
+# definition of the function that will allow the user to choose the colours thresholds graphically
 def ginput(event, x, y, flags, param):
     # grab references to the global variables
     global points
@@ -29,8 +32,10 @@ def ginput(event, x, y, flags, param):
 image = cv2.imread(r"C:\Users\malfo\Pictures\Camera Roll\1.jpg")
 image = cv2.resize(image, (512, 512))
 cv2.namedWindow("image")
+# in the mouse callback function we use the ginput function previously defined
 cv2.setMouseCallback("image", ginput)
-# keep looping until the 'q' key is pressed
+
+# loop that will allow the user to pick the color thresholds
 while True:
     # display the image and wait for a keypress
     cv2.imshow("image", image)
@@ -38,14 +43,16 @@ while True:
     # if the 'c' key is pressed, break from the loop
     if key == ord("c"):
         break
+
 # iterate over points and append the color of each pixel in bgr to colorsBGR
-# then, we change them to hsv and store them in colorsHSV
+# then, they are changed to hsv and store them in colorsHSV
 for p in points:
     colorsBGR.append(image[p])
     c = np.uint8([[[image[p][0], image[p][1], image[p][2]]]])
     colorsHSV.append(cv2.cvtColor(c, cv2.COLOR_BGR2HSV))
-# For each color stored in colorsHSV we check if its components are cointained
-# in our ilimits. If not, limits are updated
+
+# For each color stored in colorsHSV we check if its components are contained
+# in the previously define thresholds. If not, limits are updated
 for c in colorsHSV:
     # if Hue is bigger than our upper limit, update upper limit
     if c[0][0][0] > upperlimit[0]:
@@ -67,6 +74,8 @@ for c in colorsHSV:
     # if Value is smaller than our bottom limit, update bottom limit
     if c[0][0][2] < bottomlimit[2]:
         bottomlimit[2] = c[0][0][2]
-# close all open windows
+
+
 cv2.destroyAllWindows()
+
 print(str(bottomlimit) + str(upperlimit))

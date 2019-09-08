@@ -2,7 +2,7 @@
 # usage: this script grabs any videos from the subfolders on the -v directory.
 # then, it splits this videos into frames and save them on the subfolders of
 # -o directory where the name of the subfolder matches with the name of the
-# subfolder on -v
+# subfolder on -v. -r corresponds to rotation, -d to decimate and -s to resize.
 
 import argparse
 import cv2

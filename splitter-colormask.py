@@ -1,4 +1,4 @@
-# authors: @henardoel and @marloquemegusta
+
 # usage: run  splitter-colormask.py -v targetvideo.mp4 -o targetdirectory -r rotation -s targetHeight targetWidth
 import argparse
 import cv2
@@ -38,12 +38,13 @@ while cap.isOpened():
     blurred = cv2.GaussianBlur(hsv, (15, 15), 0)
     # pixel wise mask is created according to color thresholds
     mask = cv2.inRange(blurred, bottomlimit, upperlimit)
-    # mask is processed to reduce noise and close little holse
+    # mask is processed to reduce noise and close little holes
     mask = cv2.erode(mask, None, iterations=3)
     mask = cv2.dilate(mask, None, iterations=4)
     # the mask is saved to disk
     cv2.imwrite(args["outputdir"] + "/" + str(i) + ".jpg",
                 imutils.rotate(cv2.resize(mask, (args["resize"][0], args["resize"][1])), int(args["rotation"])))
     i += 1
+
 cap.release()
 cv2.destroyAllWindows()
