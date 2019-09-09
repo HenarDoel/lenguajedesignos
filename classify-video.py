@@ -7,6 +7,7 @@ import cv2
 from imutils.video import VideoStream
 import time
 import numpy as np
+from scipy.stats import mode
 
 bottomlimit = np.array([120, 100, 100])
 upperlimit = np.array([135, 255, 255])
@@ -72,8 +73,7 @@ while True:
             # predictions are being kept until there are 10 of them
             # then the most frequent one is the one that will be written in the image shown
             lastPredictions = predictions[-10:]
-            dist = nltk.FreqDist(lastPredictions)
-            text = label(dist.max())
+            text = lb.classes_[mode(lastPredictions)[0][0]]
             cv2.putText(frame, text, (5, 25), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 255, 0), 2)
         i += 1
     # the image is shown with its corresponding prediction
