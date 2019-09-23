@@ -1,5 +1,5 @@
-# USAGE
-# python train.py --dataset dataset --model pokedex.model --labelbin lb.pickle
+# authors: @henardoel and @marloquemegusta
+# usage: run train.py --dataset dataset --model pokedex.model --labelbin lb.pickle
 
 # set the matplotlib backend so figures can be saved in the background
 import matplotlib
