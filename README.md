@@ -43,3 +43,8 @@ This will train the network with the dataset provided and write de output model 
 After that you can run the classify-video.py file as explaines before and see the results.
 
 In every file you can find a first section of comments in which there is explained how to use them.
+
+## Authors
+
+* **Henar Domínguez Elvira** - *user:*  [HenarDoel](https://github.com/HenarDoel)
+* **Mario Alfonso Arsuaga** - *user:*  [marloquemegusta](https://github.com/marloquemegusta)
