@@ -34,13 +34,13 @@ This command will start your webcam and start classifying in real time. Here we 
 ![Imagen 1](/datasetguantes2/adios/0-1.png)
 
 On the other hand, maybe you want to train the network with yor own dataset, or even train it with our dataset, but by yourself.
-In this case you have to run the following commands:
+In this case you have to run the following command:
 ```
 run train.py --dataset dataset --model output.model --outputlabel lb.pickle
 ```
 
 This will train the network with the dataset provided and write de output model and the output labels where indicated
-After that you can run the classify-video.py file as explaines before and see the results.
+After that you can run the classify-video.py file as explained before and see the results.
 
 In every file you can find a first section of comments in which there is explained how to use them.
 
