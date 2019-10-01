@@ -8,7 +8,8 @@ person that is signing wear gloves with a specific color. Then this color will b
 Inside this project you will file several files, that we can group in the following categories:
 * **splitters**: the purpose of those files is to prepare de data to train yourself the network. 
 They get a video or a folder with videos, divide them by frames and save those frames to disk. 
-The ones with the word "mask" in their names also used the mask technique describe previously.
+The ones with the word "mask" in their names also used the mask technique describe previously, that gives a result as the following:
+![Masking result](/datasetguantes2/adios/0-1.jpg)
 * **color picker**: this file is the one in charge of allow us to pick the color of the image that we want to use to separate the gloved 
 hands from the rest of the image.
 * **classifiers**: those files are the ones that you have to use to get the project working. They will get the model that already has been
@@ -31,7 +32,7 @@ run classify-video.py -m guantes2.model -l guantes2.pickle
 ```
 This command will start your webcam and start classifying in real time. Here we can see how it will be displayed:
 
-![Imagen 1](/datasetguantes2/adios/0-1.png)
+![Use example](/datasetguantes2/adios/0-1.jpg)
 
 On the other hand, maybe you want to train the network with yor own dataset, or even train it with our dataset, but by yourself.
 In this case you have to run the following command:
