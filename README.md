@@ -32,7 +32,7 @@ run classify-video.py -m guantes2.model -l guantes2.pickle
 ```
 This command will start your webcam and start classifying in real time. Here we can see how it will be displayed:
 
-![Use example](/datasetguantes2/adios/0-1.jpg)
+![Use example](captura_github.PNG)
 
 On the other hand, maybe you want to train the network with yor own dataset, or even train it with our dataset, but by yourself.
 In this case you have to run the following command:
